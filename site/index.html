@@ -43,20 +43,13 @@
     <main class="page">
       <section class="hero" aria-labelledby="hero-title">
         <p class="kicker">Portfolio · Rotterdam, NL · rev 2026.09</p>
-        <h1 id="hero-title">
-          Quality engineering that starts from <em>risk</em>, and two puzzle games that start from
-          <em>logic</em>.
-        </h1>
+        <h1 id="hero-title">Tests that start from <em>risk</em>. Games that start from <em>logic</em>.</h1>
         <p class="lede">
           I am Özgür, a test automation and quality engineer in Rotterdam. I build test systems that
           choose the right layer for each risk, tooling where AI drafts and humans approve, and on the side I ship
           deduction games for iPhone.
         </p>
-        <div class="stamps" aria-label="At a glance">
-          <span class="stamp">Playwright · TypeScript</span>
-          <span class="stamp">Pact · Testcontainers · k6</span>
-          <span class="stamp">Swift · iOS</span>
-        </div>
+        <p class="toolkit" aria-label="Toolkit">Playwright · TypeScript · Pact · Testcontainers · k6 · Anthropic SDK · Swift</p>
       </section>
 
       <section id="work" aria-labelledby="work-label">
@@ -72,13 +65,14 @@
                 through Testcontainers, Playwright with axe-core, k6 budgets, Promptfoo evaluations and
                 OpenTelemetry traces, wired into four parallel CI jobs with architecture decision records.
               </p>
+              <p class="facts">4 parallel CI jobs · 9 quality layers · 42 automated tests · 5 ADRs</p>
               <p class="tags">TypeScript · Vitest · Pact · Testcontainers · Playwright · k6 · GitHub Actions</p>
               <p class="links">
                 <a href="https://github.com/cozgur/modern-quality-engineering-lab">Source ↗</a>
                 <a href="https://github.com/cozgur/modern-quality-engineering-lab/blob/main/docs/test-strategy.md">Test strategy ↗</a>
               </p>
             </div>
-            <span class="stamp quiet">open source</span>
+            <span class="status">open source</span>
           </li>
 
           <li class="entry">
@@ -91,6 +85,7 @@
                 deterministic guardrail lint that blocks sleeps and brittle selectors, and run it on GitHub Actions
                 against allowlisted targets. A static site with no backend; your API key stays in your browser.
               </p>
+              <p class="facts">90 unit and component tests · 12 E2E with network-level API mocks · axe clean · 5 ADRs</p>
               <p class="tags">React · Anthropic SDK · structured outputs · Playwright · GitHub Actions</p>
               <p class="links">
                 <a href="https://studio.ozgurcetintas.dev/">Live ↗</a>
@@ -104,13 +99,14 @@
           <li class="entry">
             <span class="idx" aria-hidden="true">03</span>
             <div class="body">
-              <h2>CipherBreaker</h2>
+              <h2><img class="app-icon" src="assets/cipherbreaker-icon.png" alt="" width="40" height="40" />CipherBreaker</h2>
               <p>
                 A pure deduction game for iPhone: four digits, ten guesses, zero luck. Seven modes built on one
                 mechanic, from colour-coded feedback to a chess-clock blitz, plus a daily puzzle with a streak worth
                 keeping. The website runs the app's own evaluator, so today's round is playable in the browser.
               </p>
-              <p class="tags">Swift · iOS 15.1+ · free · web daily</p>
+              <p class="facts">7 modes on one mechanic · daily puzzle with streaks · playable round on the web</p>
+              <p class="tags">Swift · iOS 15.1+ · free</p>
               <p class="links">
                 <a href="https://apps.apple.com/app/id6777961704">App Store ↗</a>
                 <a href="https://cipherbreaker.app/">cipherbreaker.app ↗</a>
@@ -123,12 +119,13 @@
           <li class="entry">
             <span class="idx" aria-hidden="true">04</span>
             <div class="body">
-              <h2>Outguess</h2>
+              <h2><img class="app-icon" src="assets/outguess-icon.png" alt="" width="40" height="40" />Outguess</h2>
               <p>
                 Word battles. Same word, two boards, and every guess leaks information to both players; fewer
                 guesses wins. A daily duel against the same rival as everyone else, a ranked ladder, and
                 challenges you send to friends.
               </p>
+              <p class="facts">daily duel · ranked ladder · friend challenges · released September 2026</p>
               <p class="tags">Swift · iOS · multiplayer</p>
               <p class="links">
                 <a href="https://apps.apple.com/app/id6808974621">App Store ↗</a>
