@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Özgür Çetintaş · Quality engineering and puzzle games</title>
+    <meta
+      name="description"
+      content="Özgür Çetintaş is a test automation and quality engineer in Rotterdam. Risk-based test systems, agent-assisted test planning, and two deduction games for iPhone."
+    />
+    <meta name="color-scheme" content="light" />
+    <meta property="og:title" content="Özgür Çetintaş" />
+    <meta property="og:description" content="Quality engineering that starts from risk, and two puzzle games that start from logic." />
+    <meta property="og:url" content="https://ozgurcetintas.dev/" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://ozgurcetintas.dev/" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F5F3EC'/%3E%3Crect x='1.5' y='1.5' width='29' height='29' fill='none' stroke='%2316150F' stroke-width='3'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='JetBrains Mono, monospace' font-weight='700' font-size='16' fill='%2316150F'%3E%C3%96%C3%87%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#work">Skip to work</a>
+
+    <header class="topbar">
+      <div class="brand">
+        <strong>Özgür Çetintaş</strong>
+        <span>QA · SDET · iOS indie</span>
+      </div>
+      <nav class="topnav" aria-label="Page">
+        <a href="#work">Work</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/cozgur">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="kicker">Portfolio · Rotterdam, NL · rev 2026.09</p>
+        <h1 id="hero-title">
+          Quality engineering that starts from <em>risk</em>, and two puzzle games that start from
+          <em>logic</em>.
+        </h1>
+        <p class="lede">
+          I am Özgür, a test automation and quality engineer, currently at Pixery Labs. I build test systems that
+          choose the right layer for each risk, tooling where AI drafts and humans approve, and on the side I ship
+          deduction games for iPhone.
+        </p>
+        <div class="stamps" aria-label="At a glance">
+          <span class="stamp">Playwright · TypeScript</span>
+          <span class="stamp">Pact · Testcontainers · k6</span>
+          <span class="stamp">Swift · iOS</span>
+        </div>
+      </section>
+
+      <section id="work" aria-labelledby="work-label">
+        <div class="section-label" id="work-label">01 · Selected work</div>
+        <ol class="ledger">
+          <li class="entry">
+            <span class="idx" aria-hidden="true">01</span>
+            <div class="body">
+              <h2>Modern Quality Engineering Lab</h2>
+              <p>
+                A production-style showcase of choosing the right test layer for each risk around a small
+                TypeScript service: table-driven unit tests, in-process API tests, Pact contracts, a real PostgreSQL
+                through Testcontainers, Playwright with axe-core, k6 budgets, Promptfoo evaluations and
+                OpenTelemetry traces, wired into four parallel CI jobs with architecture decision records.
+              </p>
+              <p class="tags">TypeScript · Vitest · Pact · Testcontainers · Playwright · k6 · GitHub Actions</p>
+              <p class="links">
+                <a href="https://github.com/cozgur/modern-quality-engineering-lab">Source ↗</a>
+                <a href="https://github.com/cozgur/modern-quality-engineering-lab/blob/main/docs/test-strategy.md">Test strategy ↗</a>
+              </p>
+            </div>
+            <span class="stamp quiet">open source</span>
+          </li>
+
+          <li class="entry">
+            <span class="idx" aria-hidden="true">02</span>
+            <div class="body">
+              <h2>TestPlan Studio</h2>
+              <p>
+                Describe an application and get a risk-based test plan from Claude, with every scenario placed at
+                the layer that can prove it. Turn the browser scenarios into a Playwright spec, pass it through a
+                deterministic guardrail lint that blocks sleeps and brittle selectors, and run it on GitHub Actions
+                against allowlisted targets. A static site with no backend; your API key stays in your browser.
+              </p>
+              <p class="tags">React · Anthropic SDK · structured outputs · Playwright · GitHub Actions</p>
+              <p class="links">
+                <a href="https://studio.ozgurcetintas.dev/">Live ↗</a>
+                <a href="https://github.com/cozgur/testplan-studio">Source ↗</a>
+                <a href="https://github.com/cozgur/testplan-studio/blob/main/docs/design.md">Design notes ↗</a>
+              </p>
+            </div>
+            <span class="stamp">live</span>
+          </li>
+
+          <li class="entry">
+            <span class="idx" aria-hidden="true">03</span>
+            <div class="body">
+              <h2>CipherBreaker</h2>
+              <p>
+                A pure deduction game for iPhone: four digits, ten guesses, zero luck. Seven modes built on one
+                mechanic, from colour-coded feedback to a chess-clock blitz, plus a daily puzzle with a streak worth
+                keeping. The website runs the app's own evaluator, so today's round is playable in the browser.
+              </p>
+              <p class="tags">Swift · iOS 15.1+ · free · web daily</p>
+              <p class="links">
+                <a href="https://apps.apple.com/app/id6777961704">App Store ↗</a>
+                <a href="https://cipherbreaker.app/">cipherbreaker.app ↗</a>
+                <a href="https://cipherbreaker.app/play/">Play today's puzzle ↗</a>
+              </p>
+            </div>
+            <span class="stamp">on the App Store</span>
+          </li>
+
+          <li class="entry">
+            <span class="idx" aria-hidden="true">04</span>
+            <div class="body">
+              <h2>Outguess</h2>
+              <p>
+                Word battles. Same word, two boards, and every guess leaks information to both players; fewer
+                guesses wins. A daily duel against the same rival as everyone else, a ranked ladder, and
+                challenges you send to friends.
+              </p>
+              <p class="tags">Swift · iOS · multiplayer</p>
+              <p class="links">
+                <a href="https://outguessapp.com/">outguessapp.com ↗</a>
+              </p>
+            </div>
+            <span class="stamp quiet">coming to the App Store</span>
+          </li>
+        </ol>
+      </section>
+
+      <section id="approach" aria-labelledby="approach-label">
+        <div class="section-label" id="approach-label">02 · How I work</div>
+        <div class="principles">
+          <article>
+            <h3><span class="mono">2.1</span> Risk before features</h3>
+            <p>
+              Every plan starts with what would hurt if it broke, scored for likelihood and impact. Features earn
+              tests because a risk points at them, not because they exist.
+            </p>
+          </article>
+          <article>
+            <h3><span class="mono">2.2</span> The lowest layer that proves it</h3>
+            <p>
+              Pure logic in unit tests, HTTP semantics in API tests, contracts between services, real infrastructure
+              only where its semantics matter, and the browser for critical journeys. Small end-to-end suites stay
+              green.
+            </p>
+          </article>
+          <article>
+            <h3><span class="mono">2.3</span> Agents propose, humans approve</h3>
+            <p>
+              Models are good at drafting plans and specs and poor at deciding what a test should mean. A
+              deterministic lint and a reviewer sit between every proposal and CI.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-label">
+        <div class="section-label" id="contact-label">03 · Contact</div>
+        <dl class="contact">
+          <div>
+            <dt>GitHub</dt>
+            <dd><a href="https://github.com/cozgur">github.com/cozgur</a></dd>
+          </div>
+          <div>
+            <dt>Studio</dt>
+            <dd><a href="https://studio.ozgurcetintas.dev/">studio.ozgurcetintas.dev</a></dd>
+          </div>
+          <div>
+            <dt>Games</dt>
+            <dd><a href="https://cipherbreaker.app/">cipherbreaker.app</a> · <a href="https://outguessapp.com/">outguessapp.com</a></dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 Özgür Çetintaş</span>
+      <span>Static · GitHub Pages · <a href="https://github.com/cozgur/ozgurcetintas.dev">Source ↗</a></span>
+    </footer>
+  </body>
+</html>
