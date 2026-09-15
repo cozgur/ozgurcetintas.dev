@@ -6,11 +6,11 @@
     <title>Özgür Çetintaş · Quality engineering and puzzle games</title>
     <meta
       name="description"
-      content="Özgür Çetintaş is a test automation and quality engineer in Rotterdam. Risk-based test systems, agent-assisted test planning, and two deduction games for iPhone."
+      content="Özgür Çetintaş is a test automation and quality engineer in Rotterdam. Risk-based test systems, TestLease for shared test accounts, agent-assisted test planning, and two deduction games for iPhone."
     />
     <meta name="color-scheme" content="light" />
     <meta property="og:title" content="Özgür Çetintaş" />
-    <meta property="og:description" content="Tests that start from risk. Games that start from logic. Quality engineering, agent-assisted test planning, and two iPhone puzzle games." />
+    <meta property="og:description" content="Tests that start from risk. Games that start from logic. Quality engineering, open-source test infrastructure, agent-assisted test planning, and two iPhone puzzle games." />
     <meta property="og:url" content="https://ozgurcetintas.dev/" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://ozgurcetintas.dev/assets/og.png" />
@@ -53,10 +53,10 @@
         <h1 id="hero-title">Tests that start from <em>risk</em>. Games that start from <em>logic</em>.</h1>
         <p class="lede">
           I am Özgür, a test automation and quality engineer in Rotterdam. I build test systems that
-          choose the right layer for each risk, tooling where AI drafts and humans approve, and on the side I ship
-          deduction games for iPhone.
+          choose the right layer for each risk, infrastructure that stops parallel tests from fighting over shared
+          accounts, tooling where AI drafts and humans approve, and on the side I ship deduction games for iPhone.
         </p>
-        <p class="toolkit" aria-label="Toolkit">Playwright · TypeScript · Pact · Testcontainers · k6 · Anthropic SDK · React Native · Maestro</p>
+        <p class="toolkit" aria-label="Toolkit">Playwright · TypeScript · Pact · Testcontainers · k6 · SQLite · MCP · Anthropic SDK · React Native · Maestro</p>
       </section>
 
       <section id="work" aria-labelledby="work-label">
@@ -86,6 +86,28 @@
           <li class="entry">
             <span class="idx" aria-hidden="true">02</span>
             <div class="body">
+              <h2>TestLease</h2>
+              <p>
+                Parallel test workers fight over shared accounts and sandboxes, and the flakiness looks like application
+                bugs. TestLease is an open-source server that gives each worker an exclusive, expiring lease: one owner
+                per resource enforced by the database, a heartbeat that keeps slow workers alive and a TTL that frees
+                crashed ones, fair waiting, quarantine for contaminated accounts, and an event trail as evidence. Secrets
+                never leave the server. HTTP API, Playwright fixtures, a CLI, and an MCP server for agents.
+              </p>
+              <p class="facts">7 npm packages at v0.2.0 · 129 automated tests · 8 Chromium workers on 3 accounts, 0 overlaps · 15 ADRs · Docker image on GHCR · Apache-2.0</p>
+              <p class="tags">TypeScript · Hono · SQLite · Playwright · MCP · Vitest · GitHub Actions</p>
+              <p class="links">
+                <a href="https://github.com/testlease/testlease">Source ↗</a>
+                <a href="https://www.npmjs.com/package/testlease">npm ↗</a>
+                <a href="https://github.com/testlease/testlease/blob/main/docs/adr/README.md">Decision records ↗</a>
+              </p>
+            </div>
+            <span class="stamp">v0.2 on npm</span>
+          </li>
+
+          <li class="entry">
+            <span class="idx" aria-hidden="true">03</span>
+            <div class="body">
               <h2>TestPlan Studio</h2>
               <p>
                 Describe an application and get a risk-based test plan from Claude, with every scenario placed at
@@ -105,7 +127,7 @@
           </li>
 
           <li class="entry">
-            <span class="idx" aria-hidden="true">03</span>
+            <span class="idx" aria-hidden="true">04</span>
             <div class="body">
               <h2><img class="app-icon" src="assets/cipherbreaker-icon.png" alt="" width="40" height="40" />CipherBreaker</h2>
               <p>
@@ -113,7 +135,7 @@
                 mechanic, from colour-coded feedback to a chess-clock blitz, plus a daily puzzle with a streak worth
                 keeping. The website runs the app's own evaluator, so today's round is playable in the browser.
               </p>
-              <p class="facts">7 modes on one mechanic · daily puzzle with streaks · playable round on the web</p>
+              <p class="facts">3,829 Jest cases across 250 suites · 7 modes on one mechanic · daily puzzle with streaks · playable round on the web</p>
               <p class="tags">React Native · TypeScript · Jest · Maestro · iOS 15.1+ · free</p>
               <p class="links">
                 <a href="https://apps.apple.com/app/id6777961704">App Store ↗</a>
@@ -125,7 +147,7 @@
           </li>
 
           <li class="entry">
-            <span class="idx" aria-hidden="true">04</span>
+            <span class="idx" aria-hidden="true">05</span>
             <div class="body">
               <h2><img class="app-icon" src="assets/outguess-icon.png" alt="" width="40" height="40" />Outguess</h2>
               <p>
@@ -133,7 +155,7 @@
                 guesses wins. A daily duel against the same rival as everyone else, a ranked ladder, and
                 challenges you send to friends.
               </p>
-              <p class="facts">daily duel · ranked ladder · friend challenges · released September 2026</p>
+              <p class="facts">1,237 Jest cases across 122 suites · daily duel · ranked ladder · friend challenges · released September 2026</p>
               <p class="tags">React Native · TypeScript · Game Center · multiplayer</p>
               <p class="links">
                 <a href="https://apps.apple.com/app/id6808974621">App Store ↗</a>
@@ -191,6 +213,10 @@
           <div>
             <dt>Studio</dt>
             <dd><a href="https://studio.ozgurcetintas.dev/">studio.ozgurcetintas.dev</a> · <a href="https://lab.ozgurcetintas.dev/">lab.ozgurcetintas.dev</a></dd>
+          </div>
+          <div>
+            <dt>Open source</dt>
+            <dd><a href="https://github.com/testlease/testlease">github.com/testlease/testlease</a> · <a href="https://www.npmjs.com/package/testlease">npmjs.com/package/testlease</a></dd>
           </div>
           <div>
             <dt>Games</dt>
