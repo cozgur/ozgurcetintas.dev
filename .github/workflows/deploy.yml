@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # The project fact lines are fetched at deploy time, so republish weekly to pick up
+  # what those projects' pipelines have measured since.
+  schedule:
+    - cron: '0 7 * * 1'
 
 permissions:
   contents: read
