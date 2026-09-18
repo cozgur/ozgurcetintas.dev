@@ -7,9 +7,23 @@ import { readFileSync, writeFileSync } from 'node:fs';
 const file = process.argv[2] ?? 'site/index.html';
 
 const SOURCES = [
+  { key: 'trident', url: 'https://cozgur.github.io/trident/facts.json', sentence: tridentSentence },
   { key: 'lab', url: 'https://lab.ozgurcetintas.dev/facts.json', sentence: labSentence },
   { key: 'studio', url: 'https://studio.ozgurcetintas.dev/facts.json', sentence: studioSentence },
 ];
+
+function tridentSentence(f) {
+  return [
+    f.publishedModules && f.releasedVersion
+      ? `${f.publishedModules} modules on Maven Central at v${f.releasedVersion}`
+      : f.publishedModules && `${f.publishedModules} modules on Maven Central`,
+    f.scenarios && `${f.scenarios} scenarios across two suites`,
+    f.archetypeToGreenSeconds && `${f.archetypeToGreenSeconds}s from archetype:generate to a green suite`,
+    f.adrs && `${f.adrs} ADRs`,
+  ]
+    .filter(Boolean)
+    .join(' · ');
+}
 
 function labSentence(f) {
   return [
