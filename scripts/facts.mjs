@@ -17,7 +17,7 @@ function tridentSentence(f) {
     f.publishedModules && f.releasedVersion
       ? `${f.publishedModules} modules on Maven Central at v${f.releasedVersion}`
       : f.publishedModules && `${f.publishedModules} modules on Maven Central`,
-    f.scenarios && `${f.scenarios} scenarios across two suites`,
+    f.scenarios && f.suites && `${f.scenarios} scenarios across ${f.suites} suites`,
     f.archetypeToGreenSeconds && `${f.archetypeToGreenSeconds}s from archetype:generate to a green suite`,
     f.adrs && `${f.adrs} ADRs`,
   ]
