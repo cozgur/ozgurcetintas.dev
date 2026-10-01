@@ -1,9 +1,10 @@
 // Relays what visitors do on ozgurcetintas.dev to a Telegram chat: a visit, a CV
-// download, a link click. The bot token lives here as a secret so the page never
-// carries it. Nothing identifying is forwarded: no IP, no user agent, only the
-// country Cloudflare resolves, the referring host and a random per-session tag.
+// download, and a summary when they leave. The bot token lives here as a secret so
+// the page never carries it. Forwarded: the tag from a link the owner sent (?r=),
+// the referring host, city, country and network name that Cloudflare resolves, and
+// a random per-session tag. Not forwarded: IP address and user agent.
 const ORIGIN = 'https://ozgurcetintas.dev';
-const TYPES = new Set(['visit', 'cv', 'link']);
+const TYPES = new Set(['visit', 'cv', 'summary']);
 
 export default {
   async fetch(request, env) {
@@ -30,7 +31,7 @@ export default {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
         chat_id: env.TELEGRAM_CHAT_ID.trim(),
-        text: describe(event, request.cf?.country),
+        text: describe(event, request.cf ?? {}),
         disable_web_page_preview: true,
       }),
     });
@@ -39,8 +40,9 @@ export default {
   },
 };
 
-function describe(event, country) {
-  const tag = `#${clip(event.session, 6) || '?'}`;
+function describe(event, cf) {
+  const session = `#${clip(event.session, 6) || '?'}`;
+  const tag = clip(event.tag, 40);
   const time = new Date().toLocaleString('en-GB', {
     timeZone: 'Europe/Amsterdam',
     day: 'numeric',
@@ -48,14 +50,32 @@ function describe(event, country) {
     hour: '2-digit',
     minute: '2-digit',
   });
+  const place = [cf.city, cf.country].filter(Boolean).join(', ') || 'unknown place';
+  const network = cf.asOrganization ? `network: ${cf.asOrganization}` : '';
 
   if (event.type === 'visit') {
     const from = clip(event.referrer, 60) || 'direct';
     const device = event.device === 'mobile' ? 'mobile' : 'desktop';
-    return `👀 Visit · from ${from} · ${country || '??'} · ${device} · ${time} · ${tag}`;
+    const page = event.page === 'cv' ? 'CV link' : 'site';
+    const title = tag ? `🎯 ${tag} opened your ${page}` : `👀 Visit (${page})`;
+    return lines(title, `from ${from} · ${device} · ${place}`, network, `${time} · ${session}`);
   }
-  if (event.type === 'cv') return `📄 CV downloaded · ${time} · ${tag}`;
-  return `🔗 "${clip(event.label, 40)}" → ${clip(event.target, 80)} · ${time} · ${tag}`;
+  if (event.type === 'cv') return lines(`📄 CV downloaded${tag ? ` · 🎯 ${tag}` : ''}`, place, network, `${time} · ${session}`);
+
+  const seconds = Math.max(0, Math.min(Math.round(Number(event.seconds) || 0), 6 * 3600));
+  const duration = seconds >= 60 ? `${Math.floor(seconds / 60)}m ${seconds % 60}s` : `${seconds}s`;
+  const read = list(event.sections, 8) || 'top of the page only';
+  const clicked = list(event.clicks, 15) || 'nothing';
+  return lines(`🧾 Left after ${duration}${tag ? ` · 🎯 ${tag}` : ''}`, `read: ${read}`, `clicked: ${clicked}`, `${time} · ${session}`);
 }
 
 const clip = (value, max) => (typeof value === 'string' ? value.trim().slice(0, max) : '');
+const list = (values, max) =>
+  Array.isArray(values)
+    ? values
+        .slice(0, max)
+        .map((v) => clip(v, 90))
+        .filter(Boolean)
+        .join(', ')
+    : '';
+const lines = (...parts) => parts.filter(Boolean).join('\n');
