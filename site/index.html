@@ -285,5 +285,57 @@
       <span>© 2026 Özgür Çetintaş · Spijkenisse, NL</span>
       <span>Static · GitHub Pages · <a href="https://github.com/cozgur/ozgurcetintas.dev" target="_blank" rel="noopener">Source ↗</a></span>
     </footer>
+    <script>
+      // Tells the owner about a visit, a CV download or a link click through the
+      // worker/ relay. No cookies; a random tag groups one session's events.
+      // Open the page once with ?me to stop a browser from reporting, ?me=off to undo.
+      (() => {
+        const endpoint = 'https://site-notify.ozgur-cetintas.workers.dev/';
+        try {
+          const me = new URLSearchParams(location.search).get('me');
+          if (me === 'off') localStorage.removeItem('notify-skip');
+          else if (me !== null) localStorage.setItem('notify-skip', '1');
+          if (localStorage.getItem('notify-skip')) return;
+        } catch {}
+        if (navigator.webdriver || /bot|crawl|spider|preview|headless|lighthouse/i.test(navigator.userAgent)) return;
+
+        let session = '';
+        let first = true;
+        try {
+          session = sessionStorage.getItem('notify-session') || '';
+          first = !session;
+          if (first) {
+            session = Math.random().toString(36).slice(2, 8);
+            sessionStorage.setItem('notify-session', session);
+          }
+        } catch {
+          session = Math.random().toString(36).slice(2, 8);
+        }
+
+        const send = (event) => {
+          try {
+            navigator.sendBeacon(endpoint, JSON.stringify({ session, ...event }));
+          } catch {}
+        };
+
+        if (first) {
+          let referrer = '';
+          try {
+            const from = new URL(document.referrer);
+            if (from.host !== location.host) referrer = from.host;
+          } catch {}
+          send({ type: 'visit', referrer, device: matchMedia('(pointer: coarse)').matches ? 'mobile' : 'desktop' });
+        }
+
+        document.addEventListener('click', (e) => {
+          const link = e.target.closest('a[href]');
+          if (!link) return;
+          if (link.hasAttribute('download')) return send({ type: 'cv' });
+          const url = new URL(link.href, location.href);
+          const target = url.protocol === 'mailto:' ? 'email' : url.origin === location.origin ? url.hash || url.pathname : url.host + url.pathname.replace(/\/$/, '');
+          send({ type: 'link', label: link.textContent.replace(/\s+/g, ' ').replace(/[↗↓]/g, '').trim(), target });
+        });
+      })();
+    </script>
   </body>
 </html>
