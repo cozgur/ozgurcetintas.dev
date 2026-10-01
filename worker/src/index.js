@@ -1,8 +1,9 @@
 // Relays what visitors do on ozgurcetintas.dev to a Telegram chat: a visit, a CV
 // download, and a summary when they leave. The bot token lives here as a secret so
 // the page never carries it. Forwarded: the tag from a link the owner sent (?r=),
-// the referring host, the city and country that Cloudflare resolves, and a random
-// per-session tag. Not forwarded: IP address, network name and user agent.
+// the referring host, the city and country that Cloudflare resolves, a random
+// per-session tag and a daily unique-visitor count. Not forwarded or stored: IP
+// address, network name and user agent.
 const ORIGIN = 'https://ozgurcetintas.dev';
 const TYPES = new Set(['visit', 'cv', 'summary']);
 
@@ -39,7 +40,7 @@ async function handle(request, env) {
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
       chat_id: env.TELEGRAM_CHAT_ID.trim(),
-      text: describe(event, request.cf ?? {}),
+      text: describe(event, request.cf ?? {}, event.type === 'visit' ? await count(request, env) : null),
       disable_web_page_preview: true,
     }),
   });
@@ -47,7 +48,7 @@ async function handle(request, env) {
   return new Response(null, { status: response.ok ? 204 : 502 });
 }
 
-function describe(event, cf) {
+function describe(event, cf, visitors) {
   const session = `#${clip(event.session, 6) || '?'}`;
   const tag = clip(event.tag, 40);
   const time = new Date().toLocaleString('en-GB', {
@@ -64,7 +65,7 @@ function describe(event, cf) {
     const device = event.device === 'mobile' ? 'mobile' : 'desktop';
     const page = event.page === 'cv' ? 'CV link' : 'site';
     const title = tag ? `🎯 ${tag} opened your ${page}` : `👀 Visit (${page})`;
-    return lines(title, `from ${from} · ${device} · ${place}`, `${time} · ${session}`);
+    return lines(title, `from ${from} · ${device} · ${place}`, visitors, `${time} · ${session}`);
   }
   if (event.type === 'cv') return lines(`📄 CV downloaded${tag ? ` · 🎯 ${tag}` : ''}`, place, `${time} · ${session}`);
 
@@ -73,6 +74,43 @@ function describe(event, cf) {
   const read = list(event.sections, 8) || 'top of the page only';
   const clicked = list(event.clicks, 15) || 'nothing';
   return lines(`🧾 Left after ${duration}${tag ? ` · 🎯 ${tag}` : ''}`, `read: ${read}`, `clicked: ${clicked}`, `${time} · ${session}`);
+}
+
+// Counts unique visitors per day the way cookieless analytics do: a SHA-256 of the
+// IP and user agent under a salt that changes every day, so a hash cannot be turned
+// back into an IP and cannot link one day's visit to the next. Hashes expire after
+// two days; only the counts remain. A counting failure never blocks the message.
+async function count(request, env) {
+  try {
+    const day = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Amsterdam' });
+    const twoDays = { expirationTtl: 172_800 };
+
+    let salt = await env.VISITORS.get(`salt:${day}`);
+    if (!salt) {
+      salt = crypto.randomUUID();
+      await env.VISITORS.put(`salt:${day}`, salt, twoDays);
+    }
+    const ip = request.headers.get('CF-Connecting-IP') || '';
+    const agent = request.headers.get('User-Agent') || '';
+    const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(`${salt}|${ip}|${agent}`));
+    const hash = [...new Uint8Array(digest).slice(0, 12)].map((b) => b.toString(16).padStart(2, '0')).join('');
+
+    let today = Number(await env.VISITORS.get(`count:${day}`)) || 0;
+    let total = Number(await env.VISITORS.get('count:total')) || 0;
+    if (await env.VISITORS.get(`seen:${day}:${hash}`)) return `👤 seen earlier today · ${today} today · ${total} total`;
+
+    today += 1;
+    total += 1;
+    await Promise.all([
+      env.VISITORS.put(`seen:${day}:${hash}`, '1', twoDays),
+      env.VISITORS.put(`count:${day}`, String(today), { expirationTtl: 34_560_000 }),
+      env.VISITORS.put('count:total', String(total)),
+    ]);
+    return `👤 visitor #${today} today · ${total} total`;
+  } catch (error) {
+    console.log('count failed', error.message);
+    return '';
+  }
 }
 
 const clip = (value, max) => (typeof value === 'string' ? value.trim().slice(0, max) : '');

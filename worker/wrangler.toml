@@ -11,3 +11,8 @@ preview_urls = false
 name = "LIMITER"
 namespace_id = "1001"
 simple = { limit = 20, period = 60 }
+
+# Daily unique-visitor counts. Holds one-way hashes for two days at most, never IPs.
+[[kv_namespaces]]
+binding = "VISITORS"
+id = "5581ecf0885a48058405baf555f26a5b"

@@ -33,11 +33,16 @@
             To know whether my portfolio is read, this site tells me about visits: when they happen, the referring
             site, phone or computer, approximate city and country, the sections viewed and links followed, and the
             <span class="mono">?r=</span> label of a link I sent. No cookies, and no IP address, network or browser
-            details are kept.
+            details are stored.
           </p>
           <p>
-            Each visit reaches me as a message in my private Telegram chat via Cloudflare. There is no database, and
-            messages are deleted automatically after 24 hours.
+            To count unique visitors per day, a one-way hash of your IP address and browser is made with a key that
+            changes daily and kept for two days at most; it cannot be turned back into either, and only the daily
+            totals remain.
+          </p>
+          <p>
+            Each visit reaches me as a message in my private Telegram chat via Cloudflare, and messages are deleted
+            automatically after 24 hours.
           </p>
           <p>
             The basis is my legitimate interest in knowing whether the portfolio is read. If your browser sends Global
