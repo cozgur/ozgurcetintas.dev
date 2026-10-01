@@ -86,11 +86,7 @@
   let visibleMs = 0;
   let since = document.visibilityState === 'visible' ? performance.now() : 0;
   let lastSent = '';
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
-      since = performance.now();
-      return;
-    }
+  const leave = () => {
     if (since) visibleMs += performance.now() - since;
     since = 0;
     const seconds = Math.round(visibleMs / 1000);
@@ -98,5 +94,11 @@
     if (seconds < 3 || snapshot === lastSent) return;
     lastSent = snapshot;
     send({ type: 'summary', seconds, sections, clicks });
+  };
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') since = performance.now();
+    else leave();
   });
+  // Safari on iOS can close a tab with pagehide and no visibilitychange.
+  addEventListener('pagehide', leave);
 })();
