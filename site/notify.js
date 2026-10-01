@@ -32,9 +32,11 @@
   });
   const tag = store('notify-tag', () => (params.get('r') || '').slice(0, 40));
 
+  // fetch with keepalive rather than sendBeacon: beacons never reached the worker in
+  // testing, and keepalive still lets the leaving summary outlive the page.
   const send = (event) => {
     try {
-      navigator.sendBeacon(endpoint, JSON.stringify({ session, tag, ...event }));
+      fetch(endpoint, { method: 'POST', keepalive: true, body: JSON.stringify({ session, tag, ...event }) }).catch(() => {});
     } catch {}
   };
   const visit = (page) => {
