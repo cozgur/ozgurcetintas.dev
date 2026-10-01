@@ -6,6 +6,7 @@ design system as [TestPlan Studio](https://github.com/cozgur/testplan-studio).
 
 - `site/index.html` and `site/styles.css`: the page
 - `site/CNAME`: apex custom domain
+- `scripts/og.html`: source of the share image `site/assets/og.png` (screenshot it at 1200×630)
 - `site/app-ads.txt`: authorised sellers for the iOS games' ad inventory
 - `.github/workflows/deploy.yml`: publishes `site/` on every push to `main`
 

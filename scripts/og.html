@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- Source of site/assets/og.png: open in a 1200x630 viewport once the fonts load and screenshot it. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600&family=JetBrains+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root { --paper: #f5f3ec; --ink: #16150f; --rule: #cfcab9; --muted: #66625a; --red: #b42318; }
+      * { box-sizing: border-box; margin: 0; }
+      html, body { width: 1200px; height: 630px; background: var(--paper); color: var(--ink); }
+      .frame { position: absolute; inset: 28px; border: 1.5px solid var(--ink); padding: 36px 36px 32px; display: flex; flex-direction: column; }
+      .top { display: flex; justify-content: space-between; font: 500 17px/20px 'JetBrains Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+      .middle { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+      h1 { white-space: nowrap; font: 600 56px/1.2 'Schibsted Grotesk', sans-serif; letter-spacing: -0.02em; }
+      h1 em { font-style: normal; border-bottom: 4px solid var(--ink); }
+      .mark { display: grid; grid-template-columns: repeat(3, 40px); gap: 10px; flex: none; }
+      .mark i { width: 40px; height: 40px; background: var(--red); }
+      .mark i.open { background: none; border: 1.5px solid var(--rule); }
+      .bottom { display: flex; justify-content: space-between; align-items: end; }
+      .who strong { display: block; font: 600 25px/32px 'Schibsted Grotesk', sans-serif; }
+      .who span { font: 500 17px/24px 'JetBrains Mono', monospace; color: var(--muted); }
+      .stamp { font: 600 19px/24px 'JetBrains Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; border: 2.5px solid var(--ink); padding: 6px 16px; transform: rotate(-2deg); }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="top"><span>Portfolio · Rotterdam area, NL</span><span>ozgurcetintas.dev</span></div>
+      <div class="middle">
+        <h1>Senior QA Engineer &amp; SDET.<br /><em>API, backend</em> and test automation.</h1>
+        <div class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i class="open"></i><i class="open"></i><i class="open"></i></div>
+      </div>
+      <div class="bottom">
+        <div class="who"><strong>Özgür Çetintaş</strong><span>Playwright · Java · REST Assured · CI/CD · AI-assisted QE</span></div>
+        <div class="stamp">Rev 2026.10</div>
+      </div>
+    </div>
+  </body>
+</html>
