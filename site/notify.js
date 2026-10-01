@@ -15,6 +15,8 @@
     if (localStorage.getItem('notify-skip')) return;
   } catch {}
   if (navigator.webdriver || /bot|crawl|spider|preview|headless|lighthouse/i.test(navigator.userAgent)) return;
+  // Respect the browser's opt-out signals, as the privacy page promises.
+  if (navigator.globalPrivacyControl || navigator.doNotTrack === '1') return;
 
   const store = (key, make) => {
     try {

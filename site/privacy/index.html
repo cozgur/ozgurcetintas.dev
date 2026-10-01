@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy · Özgür Çetintaş</title>
+    <meta name="description" content="What ozgurcetintas.dev records about visits, and what it does not." />
+    <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="light" />
+    <link rel="canonical" href="https://ozgurcetintas.dev/privacy/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <strong><a href="../" style="text-decoration: none">Özgür Çetintaş</a></strong>
+        <span>Senior QA · SDET</span>
+      </div>
+      <nav class="topnav" aria-label="Page"><a href="../">← Back to the portfolio</a></nav>
+    </header>
+
+    <main class="page">
+      <section aria-labelledby="privacy-label">
+        <div class="section-label" id="privacy-label">Privacy</div>
+        <div class="prose">
+          <p>
+            This site tells me when someone reads it, so I know whether the portfolio is being looked at. It does
+            this without cookies and without building a profile of you.
+          </p>
+
+          <h2>What is recorded</h2>
+          <ul>
+            <li>That a visit happened, and when.</li>
+            <li>The site you came from, if your browser shares it (for example linkedin.com).</li>
+            <li>Whether you are on a phone or a computer.</li>
+            <li>Your approximate city and country, and the name of the network you connect through, as Cloudflare
+              resolves them. On a company network this can be the company's name.</li>
+            <li>Which sections you scrolled to, how long the page was in view, and which links you followed,
+              including a CV download.</li>
+            <li>A label, if you arrived through a link I sent that carries one (<span class="mono">?r=…</span>).</li>
+          </ul>
+
+          <h2>What is not recorded</h2>
+          <ul>
+            <li>No cookies and no tracking across sites. A random tag in your browser's session storage groups one
+              visit's events and disappears when you close the tab.</li>
+            <li>Your IP address and browser details are not forwarded or kept by me.</li>
+            <li>Nothing is sold, shared for advertising, or combined with other data.</li>
+          </ul>
+
+          <h2>Where it goes</h2>
+          <p>
+            Each event passes through a Cloudflare Worker and arrives as a short message in my private Telegram
+            chat. There is no database. Cloudflare and Telegram process the request to deliver it, and the site
+            itself is served by GitHub Pages, which keeps its own server logs.
+          </p>
+
+          <h2>Opting out</h2>
+          <p>
+            If your browser sends <em>Global Privacy Control</em> or <em>Do Not Track</em>, nothing is recorded.
+            Blocking JavaScript has the same effect; the site works without it.
+          </p>
+
+          <h2>Questions</h2>
+          <p>
+            The basis for this is my legitimate interest in knowing whether my portfolio is read. To ask about it
+            or have messages about your visit deleted, write to
+            <a href="mailto:ozgur.cetintas@yahoo.com">ozgur.cetintas@yahoo.com</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 Özgür Çetintaş · Spijkenisse, NL</span>
+      <span>Updated October 2026</span>
+    </footer>
+  </body>
+</html>

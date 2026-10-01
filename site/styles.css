@@ -406,6 +406,32 @@ dd {
   line-height: 22px;
 }
 
+/* prose pages */
+.prose {
+  max-width: 64ch;
+  padding-top: 20px;
+}
+
+.prose h2 {
+  font: 600 17px/24px var(--font-sans);
+  margin: 28px 0 8px;
+}
+
+.prose p,
+.prose li {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.prose ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.prose li + li {
+  margin-top: 6px;
+}
+
 /* contact */
 .contact {
   display: flex;
