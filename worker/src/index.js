@@ -1,8 +1,8 @@
 // Relays what visitors do on ozgurcetintas.dev to a Telegram chat: a visit, a CV
 // download, and a summary when they leave. The bot token lives here as a secret so
 // the page never carries it. Forwarded: the tag from a link the owner sent (?r=),
-// the referring host, city, country and network name that Cloudflare resolves, and
-// a random per-session tag. Not forwarded: IP address and user agent.
+// the referring host, the city and country that Cloudflare resolves, and a random
+// per-session tag. Not forwarded: IP address, network name and user agent.
 const ORIGIN = 'https://ozgurcetintas.dev';
 const TYPES = new Set(['visit', 'cv', 'summary']);
 
@@ -58,16 +58,15 @@ function describe(event, cf) {
     minute: '2-digit',
   });
   const place = [cf.city, cf.country].filter(Boolean).join(', ') || 'unknown place';
-  const network = cf.asOrganization ? `network: ${cf.asOrganization}` : '';
 
   if (event.type === 'visit') {
     const from = clip(event.referrer, 60) || 'direct';
     const device = event.device === 'mobile' ? 'mobile' : 'desktop';
     const page = event.page === 'cv' ? 'CV link' : 'site';
     const title = tag ? `🎯 ${tag} opened your ${page}` : `👀 Visit (${page})`;
-    return lines(title, `from ${from} · ${device} · ${place}`, network, `${time} · ${session}`);
+    return lines(title, `from ${from} · ${device} · ${place}`, `${time} · ${session}`);
   }
-  if (event.type === 'cv') return lines(`📄 CV downloaded${tag ? ` · 🎯 ${tag}` : ''}`, place, network, `${time} · ${session}`);
+  if (event.type === 'cv') return lines(`📄 CV downloaded${tag ? ` · 🎯 ${tag}` : ''}`, place, `${time} · ${session}`);
 
   const seconds = Math.max(0, Math.min(Math.round(Number(event.seconds) || 0), 6 * 3600));
   const duration = seconds >= 60 ? `${Math.floor(seconds / 60)}m ${seconds % 60}s` : `${seconds}s`;
