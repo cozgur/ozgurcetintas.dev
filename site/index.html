@@ -45,7 +45,7 @@
     </script>
   </head>
   <body>
-    <a class="skip" href="#work">Skip to projects</a>
+    <a class="skip" href="#work">Skip to work</a>
 
     <header class="topbar">
       <div class="topbar-inner">
@@ -55,8 +55,9 @@
         </a>
         <nav class="topnav" aria-label="Page">
           <a href="#work">Work</a>
-          <a href="#about">About</a>
           <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
           <a class="nav-cta" href="#contact">Contact</a>
         </nav>
       </div>
@@ -72,7 +73,7 @@
           payment flows to video engines to AI features, and a few apps of my own on the App Store.
         </p>
         <div class="cta">
-          <a class="btn primary" href="#work">Projects</a>
+          <a class="btn primary" href="#projects">Projects</a>
           <a class="btn" href="#contact">Contact</a>
         </div>
       </section>
@@ -99,11 +100,11 @@
         </ul>
       </section>
 
-      <!-- Selected work -->
+      <!-- At work -->
       <section id="work" aria-labelledby="work-title">
         <div class="section-head">
           <p class="section-label">Work</p>
-          <h2 id="work-title">Selected work</h2>
+          <h2 id="work-title">At work</h2>
         </div>
         <ol class="cards">
           <li class="card">
@@ -136,54 +137,6 @@
                 </div>
               </dl>
             </details>
-          </li>
-
-          <li class="card">
-            <header>
-              <h3>CipherBreaker</h3>
-              <span class="stamp">App Store</span>
-            </header>
-            <p class="desc">
-              A 1v1 code-breaking game I built and run alone: product, code, release, store operations and marketing.
-              Bots with adaptive difficulty, in-app purchases, and a test suite with CI.
-            </p>
-            <ul class="badges" aria-label="Technologies">
-              <li>React Native</li><li>Expo</li><li>TypeScript</li><li>App Store</li>
-            </ul>
-            <p class="links">
-              <a href="https://cipherbreaker.app" target="_blank" rel="noopener">cipherbreaker.app ↗</a>
-            </p>
-          </li>
-
-          <li class="card">
-            <header>
-              <h3>Outguess</h3>
-              <span class="stamp">App Store</span>
-            </header>
-            <p class="desc">A 1v1 word-guessing game with solver-based bots at three difficulty levels. Works offline.</p>
-            <ul class="badges" aria-label="Technologies">
-              <li>React Native</li><li>Expo</li><li>TypeScript</li>
-            </ul>
-            <p class="links">
-              <a href="https://apps.apple.com/app/id6808974621" target="_blank" rel="noopener">App Store ↗</a>
-            </p>
-          </li>
-
-          <li class="card">
-            <header>
-              <h3>TestLease</h3>
-              <span class="stamp">Open source</span>
-            </header>
-            <p class="desc">
-              Open-source tool that stops parallel test runs from colliding on shared test accounts, with expiring
-              leases, crash recovery and an MCP server for AI agents. Built for a real problem I hit at work.
-            </p>
-            <ul class="badges" aria-label="Technologies">
-              <li>open source</li><li>REST API</li><li>Playwright</li><li>MCP</li>
-            </ul>
-            <p class="links">
-              <a href="https://github.com/testlease/testlease" target="_blank" rel="noopener">GitHub ↗</a>
-            </p>
           </li>
 
           <li class="card">
@@ -269,112 +222,7 @@
               </dl>
             </details>
           </li>
-
-          <!--
-          <li class="card">
-            <header>
-              <h3>Postklar</h3>
-              <span class="stamp">Coming soon</span>
-            </header>
-            <p class="desc">An iOS app that explains official letters in 50+ languages, coming soon.</p>
-          </li>
-          -->
         </ol>
-
-        <h3 class="subhead">More open source</h3>
-        <ol class="cards">
-          <li class="card">
-            <header>
-              <h3>Modern Quality Engineering Lab</h3>
-              <span class="stamp">Live reports</span>
-            </header>
-            <p class="summary">A reference architecture for matching each risk to the right test layer.</p>
-            <p class="desc">
-              A TypeScript service tested to production standards: table-driven unit tests, in-process API tests,
-              Pact consumer-driven contracts, PostgreSQL via Testcontainers, Playwright with axe-core, k6 performance
-              budgets, Promptfoo evaluations and OpenTelemetry traces. All layers run as parallel CI jobs and are
-              documented with architecture decision records.
-            </p>
-            <p class="facts" data-facts="lab">9 quality layers · live evidence page published by CI</p>
-            <ul class="badges" aria-label="Technologies">
-              <li>Playwright</li><li>Pact</li><li>Testcontainers</li><li>k6</li><li>OpenTelemetry</li><li>Promptfoo</li><li>TypeScript</li><li>GitHub Actions</li>
-            </ul>
-            <p class="links">
-              <a href="https://github.com/cozgur/modern-quality-engineering-lab" target="_blank" rel="noopener">GitHub ↗</a>
-              <a href="https://lab.ozgurcetintas.dev/" target="_blank" rel="noopener">Live reports ↗</a>
-              <a href="https://github.com/cozgur/modern-quality-engineering-lab/blob/main/docs/test-strategy.md" target="_blank" rel="noopener">Test strategy ↗</a>
-            </p>
-          </li>
-
-          <li class="card">
-            <header>
-              <h3>Trident</h3>
-              <span class="stamp">On Maven Central</span>
-            </header>
-            <p class="summary">A modular Java 21 web and API automation framework, consumed as a dependency rather than forked.</p>
-            <p class="desc">
-              Java teams often copy test plumbing from one project to the next until the copies drift apart. Trident
-              provides a single Cucumber runner with a REST Assured API layer and a web layer, with mobile support on
-              the roadmap. Teams generate a project from the archetype, add the modules they need and write feature files.
-              It is developed against a legacy JSP banking application without test hooks, and a separate showcase
-              project adopts it from Maven Central against an unrelated application.
-            </p>
-            <p class="facts" data-facts="trident">8 modules on Maven Central at v1.1.0 · 13 scenarios across 3 suites · 8s from archetype:generate to a green suite · 18 ADRs</p>
-            <ul class="badges" aria-label="Technologies">
-              <li>Java 21</li><li>REST Assured</li><li>Cucumber</li><li>JUnit 5</li><li>Maven</li><li>GitHub Actions</li>
-            </ul>
-            <p class="links">
-              <a href="https://github.com/cozgur/trident" target="_blank" rel="noopener">GitHub ↗</a>
-              <a href="https://central.sonatype.com/namespace/dev.ozgurcetintas.trident" target="_blank" rel="noopener">Maven Central ↗</a>
-              <a href="https://github.com/cozgur/trident-showcase" target="_blank" rel="noopener">Showcase ↗</a>
-            </p>
-          </li>
-
-          <li class="card">
-            <header>
-              <h3>TestPlan Studio</h3>
-              <span class="stamp">Live</span>
-            </header>
-            <p class="desc">
-              Generates a risk-based test plan from an application description using Claude, compiles the browser
-              scenarios into a linted Playwright spec and runs it on GitHub Actions.
-            </p>
-            <p class="facts" data-facts="studio">Verified end to end on Claude Opus 5 against the lab</p>
-            <ul class="badges" aria-label="Technologies">
-              <li>Claude</li><li>Playwright</li><li>GitHub Actions</li>
-            </ul>
-            <p class="links">
-              <a href="https://studio.ozgurcetintas.dev/" target="_blank" rel="noopener">Live app ↗</a>
-              <a href="https://github.com/cozgur/testplan-studio" target="_blank" rel="noopener">GitHub ↗</a>
-            </p>
-          </li>
-        </ol>
-      </section>
-
-      <!-- About -->
-      <section id="about" aria-labelledby="about-title">
-        <div class="section-head">
-          <p class="section-label">About</p>
-          <h2 id="about-title">About me</h2>
-        </div>
-        <div class="prose">
-          <p>
-            I started as a developer. In my last year at university I wrote C++ and Python for live human detection on
-            embedded Linux cameras, in a four-person startup. Then I moved into testing, and found that I enjoy breaking
-            systems as much as building them.
-          </p>
-          <p>
-            At Finartz I co-wrote more than 10,000 data-driven scenarios for a 3-D Secure payment authentication
-            server. In 2019 I joined Pixery as the first dedicated QA engineer and built the test process from zero.
-            Since then I have built about 1,000 automated tests across mobile, web, API and back end, set up the CI
-            quality gates that guard every release, and cut regression from one or two days to a few hours. From 2022
-            to 2025 I led a team of up to four QA engineers.
-          </p>
-          <p>
-            I work daily with Claude Code, and I evaluate AI features with Promptfoo. I moved to the Netherlands in
-            2025 and live near Rotterdam.
-          </p>
-        </div>
       </section>
 
       <!-- Experience -->
@@ -405,6 +253,165 @@
             <dd><strong>B.Sc. Computer Engineering</strong>, Kadir Has University</dd>
           </div>
         </dl>
+      </section>
+
+      <!-- Built on my own -->
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="section-head">
+          <p class="section-label">Projects</p>
+          <h2 id="projects-title">Built on my own</h2>
+        </div>
+        <ol class="cards">
+          <li class="card">
+            <header>
+              <h3>TestLease</h3>
+              <span class="stamp">Open source</span>
+            </header>
+            <p class="desc">
+              Open-source tool that stops parallel test runs from colliding on shared test accounts, with expiring
+              leases, crash recovery and an MCP server for AI agents. Built for a real problem I hit at work.
+            </p>
+            <ul class="badges" aria-label="Technologies">
+              <li>open source</li><li>REST API</li><li>Playwright</li><li>MCP</li>
+            </ul>
+            <p class="links">
+              <a href="https://github.com/testlease/testlease" target="_blank" rel="noopener">GitHub ↗</a>
+            </p>
+          </li>
+
+          <li class="card">
+            <header>
+              <h3>Trident</h3>
+              <span class="stamp">On Maven Central</span>
+            </header>
+            <p class="summary">A modular Java 21 web and API automation framework, consumed as a dependency rather than forked.</p>
+            <p class="desc">
+              Java teams often copy test plumbing from one project to the next until the copies drift apart. Trident
+              provides a single Cucumber runner with a REST Assured API layer and a web layer, with mobile support on
+              the roadmap. Teams generate a project from the archetype, add the modules they need and write feature files.
+              It is developed against a legacy JSP banking application without test hooks, and a separate showcase
+              project adopts it from Maven Central against an unrelated application.
+            </p>
+            <p class="facts" data-facts="trident">8 modules on Maven Central at v1.1.0 · 13 scenarios across 3 suites · 8s from archetype:generate to a green suite · 18 ADRs</p>
+            <ul class="badges" aria-label="Technologies">
+              <li>Java 21</li><li>REST Assured</li><li>Cucumber</li><li>JUnit 5</li><li>Maven</li><li>GitHub Actions</li>
+            </ul>
+            <p class="links">
+              <a href="https://github.com/cozgur/trident" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://central.sonatype.com/namespace/dev.ozgurcetintas.trident" target="_blank" rel="noopener">Maven Central ↗</a>
+              <a href="https://github.com/cozgur/trident-showcase" target="_blank" rel="noopener">Showcase ↗</a>
+            </p>
+          </li>
+
+          <li class="card">
+            <header>
+              <h3>Modern Quality Engineering Lab</h3>
+              <span class="stamp">Live reports</span>
+            </header>
+            <p class="summary">A reference architecture for matching each risk to the right test layer.</p>
+            <p class="desc">
+              A TypeScript service tested to production standards: table-driven unit tests, in-process API tests,
+              Pact consumer-driven contracts, PostgreSQL via Testcontainers, Playwright with axe-core, k6 performance
+              budgets, Promptfoo evaluations and OpenTelemetry traces. All layers run as parallel CI jobs and are
+              documented with architecture decision records.
+            </p>
+            <p class="facts" data-facts="lab">9 quality layers · live evidence page published by CI</p>
+            <ul class="badges" aria-label="Technologies">
+              <li>Playwright</li><li>Pact</li><li>Testcontainers</li><li>k6</li><li>OpenTelemetry</li><li>Promptfoo</li><li>TypeScript</li><li>GitHub Actions</li>
+            </ul>
+            <p class="links">
+              <a href="https://github.com/cozgur/modern-quality-engineering-lab" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://lab.ozgurcetintas.dev/" target="_blank" rel="noopener">Live reports ↗</a>
+              <a href="https://github.com/cozgur/modern-quality-engineering-lab/blob/main/docs/test-strategy.md" target="_blank" rel="noopener">Test strategy ↗</a>
+            </p>
+          </li>
+
+          <li class="card">
+            <header>
+              <h3>TestPlan Studio</h3>
+              <span class="stamp">Live</span>
+            </header>
+            <p class="desc">
+              Generates a risk-based test plan from an application description using Claude, compiles the browser
+              scenarios into a linted Playwright spec and runs it on GitHub Actions.
+            </p>
+            <p class="facts" data-facts="studio">Verified end to end on Claude Opus 5 against the lab</p>
+            <ul class="badges" aria-label="Technologies">
+              <li>Claude</li><li>Playwright</li><li>GitHub Actions</li>
+            </ul>
+            <p class="links">
+              <a href="https://studio.ozgurcetintas.dev/" target="_blank" rel="noopener">Live app ↗</a>
+              <a href="https://github.com/cozgur/testplan-studio" target="_blank" rel="noopener">GitHub ↗</a>
+            </p>
+          </li>
+
+          <li class="card">
+            <header>
+              <h3>Outguess</h3>
+              <span class="stamp">App Store</span>
+            </header>
+            <p class="desc">A 1v1 word-guessing game with solver-based bots at three difficulty levels. Works offline.</p>
+            <ul class="badges" aria-label="Technologies">
+              <li>React Native</li><li>Expo</li><li>TypeScript</li>
+            </ul>
+            <p class="links">
+              <a href="https://apps.apple.com/app/id6808974621" target="_blank" rel="noopener">App Store ↗</a>
+            </p>
+          </li>
+
+          <li class="card">
+            <header>
+              <h3>CipherBreaker</h3>
+              <span class="stamp">App Store</span>
+            </header>
+            <p class="desc">
+              A 1v1 code-breaking game I built and run alone: product, code, release, store operations and marketing.
+              Bots with adaptive difficulty, in-app purchases, and a test suite with CI.
+            </p>
+            <ul class="badges" aria-label="Technologies">
+              <li>React Native</li><li>Expo</li><li>TypeScript</li><li>App Store</li>
+            </ul>
+            <p class="links">
+              <a href="https://cipherbreaker.app" target="_blank" rel="noopener">cipherbreaker.app ↗</a>
+            </p>
+          </li>
+
+          <!--
+          <li class="card">
+            <header>
+              <h3>Postklar</h3>
+              <span class="stamp">Coming soon</span>
+            </header>
+            <p class="desc">An iOS app that explains official letters in 50+ languages, coming soon.</p>
+          </li>
+          -->
+        </ol>
+      </section>
+
+      <!-- About -->
+      <section id="about" aria-labelledby="about-title">
+        <div class="section-head">
+          <p class="section-label">About</p>
+          <h2 id="about-title">About me</h2>
+        </div>
+        <div class="prose">
+          <p>
+            I started as a developer. In my last year at university I wrote C++ and Python for live human detection on
+            embedded Linux cameras, in a four-person startup. Then I moved into testing, and found that I enjoy breaking
+            systems as much as building them.
+          </p>
+          <p>
+            At Finartz I co-wrote more than 10,000 data-driven scenarios for a 3-D Secure payment authentication
+            server. In 2019 I joined Pixery as the first dedicated QA engineer and built the test process from zero.
+            Since then I have built about 1,000 automated tests across mobile, web, API and back end, set up the CI
+            quality gates that guard every release, and cut regression from one or two days to a few hours. From 2022
+            to 2025 I led a team of up to four QA engineers.
+          </p>
+          <p>
+            I work daily with Claude Code, and I evaluate AI features with Promptfoo. I moved to the Netherlands in
+            2025 and live near Rotterdam.
+          </p>
+        </div>
       </section>
 
       <!-- Contact -->
