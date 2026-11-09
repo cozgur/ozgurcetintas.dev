@@ -1,4 +1,4 @@
-// Tells the owner, through the worker/ relay, when someone visits, downloads the CV,
+// Tells the owner, through the worker/ relay, when someone visits,
 // and what they read before leaving. No cookies; a random tag held for the tab's
 // session groups one visitor's events. A link sent as ?r=company carries that label.
 // Open the page once with ?me to stop a browser from reporting, ?me=off to undo.
@@ -51,11 +51,9 @@
   };
   window.siteNotify = { send, visit };
 
-  // The /cv redirect page reports on its own and leaves before any summary.
-  if (document.documentElement.dataset.notifyPage === 'cv') return;
   if (first) visit('site');
 
-  const names = { impact: 'Impact', ai: 'AI', work: 'Open source', stack: 'Stack', contact: 'Contact' };
+  const names = { impact: 'Impact', work: 'Work', about: 'About', experience: 'Experience', contact: 'Contact' };
   const sections = [];
   const clicks = [];
   const seen = new IntersectionObserver(
@@ -72,10 +70,6 @@
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
     if (!link) return;
-    if (link.hasAttribute('download')) {
-      clicks.push('CV');
-      return send({ type: 'cv' });
-    }
     const label = link.textContent.replace(/[↗↓]/g, '').replace(/\s+/g, ' ').trim();
     const url = new URL(link.href, location.href);
     if (url.protocol === 'mailto:') return clicks.push('email');

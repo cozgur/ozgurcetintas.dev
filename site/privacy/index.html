@@ -11,23 +11,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css?v=2026-11b" />
   </head>
   <body>
     <header class="topbar">
-      <div class="brand">
-        <strong><a href="../" style="text-decoration: none">Özgür Çetintaş</a></strong>
-        <span>Senior QA · SDET</span>
+      <div class="topbar-inner">
+        <a class="brand" href="../">
+          <span class="monogram" aria-hidden="true">ÖÇ</span>
+          <strong>Özgür Çetintaş</strong>
+        </a>
+        <nav class="topnav" aria-label="Page"><a class="nav-cta" href="../">← Back to portfolio</a></nav>
       </div>
-      <nav class="topnav" aria-label="Page"><a href="../">← Back to the portfolio</a></nav>
     </header>
 
     <main class="page">
       <section aria-labelledby="privacy-label">
-        <div class="section-label" id="privacy-label">Privacy</div>
+        <div class="section-head"><p class="section-label">Privacy</p><h2 id="privacy-label">Privacy notice</h2></div>
         <div class="prose">
           <p>
             To know whether my portfolio is read, this site tells me about visits: when they happen, the referring
@@ -44,7 +46,7 @@
             Privacy Control or Do Not Track, nothing is recorded.
           </p>
           <p>
-            Questions or deletion requests: <a href="mailto:ozgur.cetintas@yahoo.com">ozgur.cetintas@yahoo.com</a>.
+            Questions or deletion requests: <a class="email" data-user="ozgur.cetintas" data-domain="yahoo.com" href="#">ozgur.cetintas [at] yahoo.com</a>.
           </p>
         </div>
       </section>
@@ -54,5 +56,12 @@
       <span>© 2026 Özgür Çetintaş · Spijkenisse, NL</span>
       <span>Updated October 2026</span>
     </footer>
+    <script>
+      document.querySelectorAll('a.email').forEach((a) => {
+        const address = a.dataset.user + '@' + a.dataset.domain;
+        a.href = 'mailto:' + address;
+        a.textContent = address;
+      });
+    </script>
   </body>
 </html>
