@@ -8,7 +8,7 @@ Bump the `?v=` on the stylesheet link when `styles.css` changes, so browsers dro
 - `site/CNAME`: apex custom domain
 - `scripts/og.html`: source of the share image `site/assets/og.png` (screenshot it at 1200×630)
 - `site/app-ads.txt`: authorised sellers for the iOS games' ad inventory
-- `worker/`: Cloudflare Worker that relays visits and link clicks to Telegram; deploy with `npx wrangler deploy` from that folder (secrets: `TELEGRAM_TOKEN`, `TELEGRAM_CHAT_ID`). Open the site once with `?me` to stop your own browser reporting.
+- `worker/`: retired Cloudflare Worker that used to relay visits to Telegram. The site no longer calls it; the source stays until the deployed worker, its KV namespace and secrets are deleted.
 - `.github/workflows/deploy.yml`: publishes `site/` on every push to `main`
 
 Content changes are edits to `index.html`; the section ledger is plain markup.
