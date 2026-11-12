@@ -281,6 +281,27 @@
 
           <li class="card">
             <header>
+              <h3>Kafka Ledger Lab</h3>
+              <span class="stamp">Learning lab</span>
+            </header>
+            <p class="summary">Testing Kafka event-streaming guarantees for a payments → ledger flow against a real broker.</p>
+            <p class="desc">
+              A Java and Spring Kafka service tested against real Kafka, PostgreSQL and Schema Registry through
+              Testcontainers. The tests cover ordering, idempotency, dead-lettering, replay, consumer rebalances, a
+              SIGKILL inside the at-least-once loss window, and database and broker outages. Most guarantees were first
+              shown failing, or checked by breaking the code on purpose. A personal learning lab, not production experience.
+            </p>
+            <p class="facts">45 tests · 900 executions over 20 consecutive runs, 0 failures · 2 ADRs</p>
+            <ul class="badges" aria-label="Technologies">
+              <li>Java</li><li>Spring Kafka</li><li>Testcontainers</li><li>PostgreSQL</li>
+            </ul>
+            <p class="links">
+              <a href="https://github.com/cozgur/kafka-ledger-lab-java" target="_blank" rel="noopener">GitHub ↗</a>
+            </p>
+          </li>
+
+          <li class="card">
+            <header>
               <h3>Trident</h3>
               <span class="stamp">On Maven Central</span>
             </header>
