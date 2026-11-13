@@ -161,7 +161,7 @@
                 </div>
                 <div>
                   <dt>What I built</dt>
-                  <dd>In 2021, with one colleague, a Robot Framework suite with our own Python keyword libraries, running in Jenkins and still in use. It compares every rendered frame with a golden reference (PSNR on the worst frame, plus bit-exact MD5 checks per frame), and analyses timing from frame timestamps: jitter, dropped and duplicated frames. A fault injector generates streams with known defects to prove the checks actually detect them. Suites are tagged by requirement and run in parallel.</dd>
+                  <dd>In 2021, with one colleague, a Robot Framework suite with our own Python keyword libraries, running in a Jenkins pipeline I set up, still in use. It compares every rendered frame with a golden reference (PSNR on the worst frame, plus bit-exact MD5 checks per frame), and analyses timing from frame timestamps: jitter, dropped and duplicated frames. A fault injector generates streams with known defects to prove the checks actually detect them. Suites are tagged by requirement and run in parallel.</dd>
                 </div>
                 <div>
                   <dt>What it changed</dt>
@@ -235,11 +235,11 @@
             <p class="desc">
               As the first dedicated QA hire, I built Pixery&rsquo;s test automation framework from scratch: one Java
               codebase for mobile (Appium), web (Selenium) and API (REST Assured) tests, written as Cucumber scenarios
-              and run with TestNG and Maven. It became the base of the regression suite that later grew to ~1,000
+              and run with TestNG and Maven. I also set up the Jenkins CI/CD pipeline that runs it. It became the base of the regression suite that later grew to ~1,000
               automated tests.
             </p>
             <ul class="badges" aria-label="Technologies">
-              <li>Java</li><li>Appium</li><li>Selenium</li><li>REST Assured</li><li>Cucumber</li><li>TestNG</li><li>Maven</li>
+              <li>Java</li><li>Appium</li><li>Selenium</li><li>REST Assured</li><li>Cucumber</li><li>TestNG</li><li>Maven</li><li>Jenkins</li>
             </ul>
           </li>
 
