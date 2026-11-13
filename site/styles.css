@@ -630,6 +630,22 @@ a:focus-visible,
   content: '· ';
 }
 
+.timeline dd .result {
+  margin-top: 6px;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.more {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+.more a {
+  font-weight: 600;
+}
+
 .timeline .edu {
   background: var(--accent-soft) !important;
 }

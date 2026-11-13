@@ -29,7 +29,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=2026-11c" />
+    <link rel="stylesheet" href="styles.css?v=2026-11d" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -238,19 +238,27 @@
         <dl class="matrix timeline">
           <div>
             <dt>2022 – now</dt>
-            <dd><strong>Senior Test Automation Engineer</strong>, Pixery <span>Netherlands / Istanbul</span></dd>
+            <dd><strong>Senior Test Automation Engineer</strong>, Pixery <span>Netherlands / Istanbul</span>
+              <p class="result">Release quality for 20+ iOS, Android and web apps; ~1,000 automated tests; regression cut from 1–&#8288;2 days to 3–&#8288;4&nbsp;hours.</p>
+            </dd>
           </div>
           <div>
             <dt>2019 – 2022</dt>
-            <dd><strong>Test Automation Engineer</strong>, Pixery <span>Istanbul</span></dd>
+            <dd><strong>Test Automation Engineer</strong>, Pixery <span>Istanbul</span>
+              <p class="result">First dedicated QA hire; built the quality function and the Java/Selenium/Appium automation from scratch.</p>
+            </dd>
           </div>
           <div>
             <dt>2018 – 2019</dt>
-            <dd><strong>Software Test Automation Engineer</strong>, Finartz <span>Istanbul</span></dd>
+            <dd><strong>Software Test Automation Engineer</strong>, Finartz <span>Istanbul</span>
+              <p class="result">10,000+ data-driven Cucumber scenarios for a 3-D Secure 2.0 ACS, tested against EMVCo, Mastercard and Visa specs; the server passed certification.</p>
+            </dd>
           </div>
           <div>
             <dt>2017 – 2018</dt>
-            <dd><strong>Software Developer, computer vision</strong>, Udentify <span>Istanbul</span></dd>
+            <dd><strong>Software Developer, computer vision</strong>, Udentify <span>Istanbul</span>
+              <p class="result">C++ and Python with OpenCV on embedded camera systems for in-store analytics.</p>
+            </dd>
           </div>
           <div class="edu">
             <dt>2013 – 2018</dt>
@@ -285,27 +293,6 @@
 
           <li class="card">
             <header>
-              <h3>Kafka Ledger Lab</h3>
-              <span class="stamp">Learning lab</span>
-            </header>
-            <p class="summary">Testing Kafka event-streaming guarantees for a payments → ledger flow against a real broker.</p>
-            <p class="desc">
-              A Java and Spring Kafka service tested against real Kafka, PostgreSQL and Schema Registry through
-              Testcontainers. The tests cover ordering, idempotency, dead-lettering, replay, consumer rebalances, a
-              SIGKILL inside the at-least-once loss window, and database and broker outages. Most guarantees were first
-              shown failing, or checked by breaking the code on purpose. A personal learning lab, not production experience.
-            </p>
-            <p class="facts">45 tests · 900 executions over 20 consecutive runs, 0 failures · 2 ADRs</p>
-            <ul class="badges" aria-label="Technologies">
-              <li>Java</li><li>Spring Kafka</li><li>Testcontainers</li><li>PostgreSQL</li>
-            </ul>
-            <p class="links">
-              <a href="https://github.com/cozgur/kafka-ledger-lab-java" target="_blank" rel="noopener">GitHub ↗</a>
-            </p>
-          </li>
-
-          <li class="card">
-            <header>
               <h3>Trident</h3>
               <span class="stamp">On Maven Central</span>
             </header>
@@ -330,73 +317,38 @@
 
           <li class="card">
             <header>
-              <h3>Modern Quality Engineering Lab</h3>
-              <span class="stamp">Live reports</span>
+              <h3>Kafka Ledger Lab</h3>
+              <span class="stamp">Learning lab</span>
             </header>
-            <p class="summary">A reference architecture for matching each risk to the right test layer.</p>
+            <p class="summary">Testing Kafka event-streaming guarantees for a payments → ledger flow against a real broker.</p>
             <p class="desc">
-              A TypeScript service tested to production standards: table-driven unit tests, in-process API tests,
-              Pact consumer-driven contracts, PostgreSQL via Testcontainers, Playwright with axe-core, k6 performance
-              budgets, Promptfoo evaluations and OpenTelemetry traces. All layers run as parallel CI jobs and are
-              documented with architecture decision records.
+              A Java and Spring Kafka service tested against real Kafka, PostgreSQL and Schema Registry through
+              Testcontainers. The tests cover ordering, idempotency, dead-lettering, replay, consumer rebalances, a
+              SIGKILL inside the at-least-once loss window, and database and broker outages. Most guarantees were first
+              shown failing, or checked by breaking the code on purpose. A personal learning lab, not production experience.
             </p>
-            <p class="facts" data-facts="lab">9 quality layers · live evidence page published by CI</p>
+            <p class="facts">45 tests · 900 executions over 20 consecutive runs, 0 failures · 2 ADRs</p>
             <ul class="badges" aria-label="Technologies">
-              <li>Playwright</li><li>Pact</li><li>Testcontainers</li><li>k6</li><li>OpenTelemetry</li><li>Promptfoo</li><li>TypeScript</li><li>GitHub Actions</li>
+              <li>Java</li><li>Spring Kafka</li><li>Testcontainers</li><li>PostgreSQL</li>
             </ul>
             <p class="links">
-              <a href="https://github.com/cozgur/modern-quality-engineering-lab" target="_blank" rel="noopener">GitHub ↗</a>
-              <a href="https://lab.ozgurcetintas.dev/" target="_blank" rel="noopener">Live reports ↗</a>
-              <a href="https://github.com/cozgur/modern-quality-engineering-lab/blob/main/docs/test-strategy.md" target="_blank" rel="noopener">Test strategy ↗</a>
+              <a href="https://github.com/cozgur/kafka-ledger-lab-java" target="_blank" rel="noopener">GitHub ↗</a>
             </p>
           </li>
 
           <li class="card">
             <header>
-              <h3>TestPlan Studio</h3>
-              <span class="stamp">Live</span>
-            </header>
-            <p class="desc">
-              Generates a risk-based test plan from an application description using Claude, compiles the browser
-              scenarios into a linted Playwright spec and runs it on GitHub Actions.
-            </p>
-            <p class="facts" data-facts="studio">Verified end to end on Claude Opus 5 against the lab</p>
-            <ul class="badges" aria-label="Technologies">
-              <li>Claude</li><li>Playwright</li><li>GitHub Actions</li>
-            </ul>
-            <p class="links">
-              <a href="https://studio.ozgurcetintas.dev/" target="_blank" rel="noopener">Live app ↗</a>
-              <a href="https://github.com/cozgur/testplan-studio" target="_blank" rel="noopener">GitHub ↗</a>
-            </p>
-          </li>
-
-          <li class="card">
-            <header>
-              <h3>Outguess</h3>
+              <h3>Shipped apps</h3>
               <span class="stamp">App Store</span>
             </header>
-            <p class="desc">A 1v1 word-guessing game with solver-based bots at three difficulty levels. Works offline.</p>
+            <p class="desc">
+              Outguess and CipherBreaker are React Native / Expo apps I built and published on the App Store.
+            </p>
             <ul class="badges" aria-label="Technologies">
               <li>React Native</li><li>Expo</li><li>TypeScript</li>
             </ul>
             <p class="links">
-              <a href="https://apps.apple.com/app/id6808974621" target="_blank" rel="noopener">App Store ↗</a>
-            </p>
-          </li>
-
-          <li class="card">
-            <header>
-              <h3>CipherBreaker</h3>
-              <span class="stamp">App Store</span>
-            </header>
-            <p class="desc">
-              A 1v1 code-breaking game I built and run alone: product, code, release, store operations and marketing.
-              Bots with adaptive difficulty, in-app purchases, and a test suite with CI.
-            </p>
-            <ul class="badges" aria-label="Technologies">
-              <li>React Native</li><li>Expo</li><li>TypeScript</li><li>App Store</li>
-            </ul>
-            <p class="links">
+              <a href="https://apps.apple.com/app/id6808974621" target="_blank" rel="noopener">Outguess on the App Store ↗</a>
               <a href="https://cipherbreaker.app" target="_blank" rel="noopener">cipherbreaker.app ↗</a>
             </p>
           </li>
@@ -411,6 +363,11 @@
           </li>
           -->
         </ol>
+        <p class="more">
+          More on GitHub:
+          <a href="https://github.com/cozgur/modern-quality-engineering-lab" target="_blank" rel="noopener">Modern Quality Engineering Lab</a>,
+          <a href="https://github.com/cozgur/testplan-studio" target="_blank" rel="noopener">TestPlan Studio</a>
+        </p>
       </section>
 
       <!-- About -->
